@@ -21,6 +21,14 @@ body {
     align-items: start;
 }
 
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* cut extra space */
+    background: var(--background-dark);
+}
+
 .container {
     position: relative;
     z-index: 2;
@@ -217,8 +225,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 300%;
-    height: 300%;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(270deg,
         rgba(94, 114, 228, 0.4) 0%,
         rgba(148, 0, 211, 0.35) 30%,
@@ -233,7 +241,6 @@ body {
     opacity: 0.5;
 }
 
-/* Moving the gradient */
 @keyframes auroraMove {
     0% {
         background-position: 0% 50%;
@@ -272,3 +279,64 @@ body {
     }
 }
 
+.background-galaxies {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1; /* same as aurora */
+}
+
+.galaxy {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: spinGalaxy 200s linear infinite, shimmerGalaxy 10s ease-in-out infinite alternate;
+    border-radius: 50%;
+}
+
+
+/* Randomize galaxies */
+.galaxy:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s, 0s;
+    animation-duration: 240s, 12s;
+}
+.galaxy:nth-child(2) {
+    top: 60%;
+    left: 70%;
+    animation-delay: 30s, 3s;
+    animation-duration: 220s, 14s;
+}
+.galaxy:nth-child(3) {
+    top: 30%;
+    left: 80%;
+    animation-delay: 60s, 5s;
+    animation-duration: 250s, 11s;
+}
+.galaxy:nth-child(4) {
+    top: 70%;
+    left: 30%;
+    animation-delay: 90s, 2s;
+    animation-duration: 230s, 13s;
+}
+.galaxy:nth-child(5) {
+    top: 50%;
+    left: 50%;
+    animation-delay: 120s, 4s;
+    animation-duration: 210s, 15s;
+}
+
+
+/* Galaxy slow spin animation */
+@keyframes spinGalaxy {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

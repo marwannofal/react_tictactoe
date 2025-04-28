@@ -86,6 +86,11 @@ export default function TicTacToe() {
                     <div key={i} className="sparkle" />
                 ))}
             </div>
+            <div className="background-galaxies">
+                {Array.from({ length: 5 }).map((_, i) => (
+                    <div key={i} className="galaxy" />
+                ))}
+            </div>
             <div className="falling-stars">
                 {Array.from({ length: 20 }).map((_, i) => {
                     const left = Math.random() * 100; // random left 0%-100%
