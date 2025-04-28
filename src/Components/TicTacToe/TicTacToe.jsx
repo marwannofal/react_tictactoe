@@ -79,12 +79,45 @@ export default function TicTacToe() {
     );
 
     return (
-        <div className='container'>
-            <h1 className='title' ref={titleRef}>Tic-Tac-Toe using <span>React</span></h1>
-            <div className='board'>
-                {board.map((_, index) => renderBox(index))}
+        <>
+            <div className="aurora"></div>
+            <div className="sparkles" >
+                {Array.from({ length: 20 }).map((_, i) => (
+                    <div key={i} className="sparkle" />
+                ))}
             </div>
-            <button className='reset' onClick={resetGame}>Reset Game</button>
-        </div>
+            <div className="falling-stars">
+                {Array.from({ length: 20 }).map((_, i) => {
+                    const left = Math.random() * 100; // random left 0%-100%
+                    const delay = Math.random() * 10; // random delay 0-10s
+                    const duration = 8 + Math.random() * 8; // random duration between 8s–16s
+                    const size = 50 + Math.random() * 50; // random height between 50px–100px
+                    const opacity = 0.4 + Math.random() * 0.5; // random opacity between 0.4–0.9
+
+                    return (
+                        <div
+                            key={i}
+                            className="falling-star"
+                            style={{
+                                left: `${left}%`,
+                                top: `-${Math.random() * 30}%`, // random start higher
+                                animationDelay: `${delay}s`,
+                                animationDuration: `${duration}s`,
+                                height: `${size}px`,
+                                opacity: opacity,
+                            }}
+                        />
+                    );
+                })}
+            </div>
+            <div className='container'>
+
+                <h1 className='title' ref={titleRef}>Tic-Tac-Toe using <span>React</span></h1>
+                <div className='board'>
+                    {board.map((_, index) => renderBox(index))}
+                </div>
+                <button className='reset' onClick={resetGame}>Reset Game</button>
+            </div>
+        </>
     );
 }
