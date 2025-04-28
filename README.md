@@ -1,11 +1,13 @@
-# Hay all welcome to the most beautiful tec tac teo game ever 
+# Hey everyone, welcome to the most beautiful Tic Tac Toe game ever!
+## When you decide to clone this masterpiece, you must be one of the luckiest people ever.
 
-## when you make a decisions to clone this work of art, you must be one of the luckiest people ever
+# To start using the game on your local machine after cloning it, follow these steps:
 
-# to start using the game on your local machine after cloning it, first run this:
-    npm i 
+## 1. Run the following command:
+    npm i
     npm install
-# then run this:
+
+## 2. Run the following command:
     npm start
 
-## then you can enjoy it <3  
+## Once you’ve completed these steps, you can enjoy the game! <3  
